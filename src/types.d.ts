@@ -30,5 +30,9 @@ export enum Role {
 }
 
 export interface IMoves {
-  [key: string]: (G?: IGameData) => IGameData;
+  startGame: MoveFunc;
+  nightStart: MoveFunc;
 }
+
+export type MoveType = 'startGame' | 'nightStart';
+export type MoveFunc = (G?: IGameData) => IGameData;
