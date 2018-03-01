@@ -21,7 +21,7 @@ export enum PhaseType {
 export interface IPhase {
   type: PhaseType;
   allowedMoves?: string[];
-  onPhaseBegin?: (G?: IGameData, moves?: IMoves) => void;
+  onPhaseBegin?: (G?: IGameData, moves?: ProcessMove) => void;
 }
 
 export enum Role {
@@ -29,10 +29,10 @@ export enum Role {
   Villager,
 }
 
-export interface IMoves {
-  startGame: MoveFunc;
-  nightStart: MoveFunc;
-}
-
+export type ProcessMove = (moveType: MoveType, ...args: any[]) => void;
 export type MoveType = 'startGame' | 'nightStart';
-export type MoveFunc = (G?: IGameData) => IGameData;
+export type MoveFunc = (G?: IGameData, ...arg: any[]) => IGameData;
+export interface IMove {
+  type: MoveType;
+  action: MoveFunc;
+}

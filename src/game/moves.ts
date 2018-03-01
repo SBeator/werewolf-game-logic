@@ -1,13 +1,18 @@
-import { IGameData, PhaseType, IMoves } from '../types';
+import { IGameData, PhaseType, IMove } from '../types';
 
-const moves: IMoves = {
-  startGame(g: IGameData) {
-    return { ...g, phase: PhaseType.Start };
+const moves: IMove[] = [
+  {
+    type: 'startGame',
+    action(g: IGameData) {
+      return { ...g, phase: PhaseType.Start };
+    },
   },
-
-  nightStart(g: IGameData) {
-    return { ...g, phase: PhaseType.NightStart };
+  {
+    type: 'nightStart',
+    action(g: IGameData) {
+      return { ...g, phase: PhaseType.NightStart };
+    },
   },
-};
+];
 
 export default moves;

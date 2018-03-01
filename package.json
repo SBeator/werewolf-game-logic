@@ -2,5 +2,11 @@
   "name": "werewolf-game-logic",
   "version": "0.0.1",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc && node build/dist/gameBoard"
+  },
+  "dependencies": {
+    "typescript": "^2.7.2"
+  }
 }
